@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
-namespace AccoliteTest
+namespace Test
 {
     public class Root
     {
