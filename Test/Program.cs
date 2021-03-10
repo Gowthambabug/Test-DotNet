@@ -115,6 +115,14 @@ namespace Test
             Console.WriteLine("Count Age greater than 50 =" + count);
             #endregion
 
+            #region Problem8
+            //Bracket Matcher
+            string input = "(hello(world))";
+           // string input = "[(])";
+            int outPut8 = BracketMatcher(input);
+            Console.WriteLine("Bracket Matecher: " + outPut8);
+            #endregion
+
         }
 
 
@@ -385,6 +393,46 @@ namespace Test
         }
         #endregion
 
+        #region problem8
+        static int BracketMatcher(string input)
+        {
+            int output = 1;
+            char[] brackets = input.ToCharArray().Where(m => m == '(' || m == ')' || m == '[' || m == ']' || m == '{' || m == '}').ToArray();
+            if(brackets.Count() > 0)
+            {
+                if (brackets.Contains('('))
+                {
+                    output = brackets.Where(m => m.Equals('(')).Count() == brackets.Where(m => m.Equals(')')).Count() ? 1 : 0;
+                }
+                else if (brackets.Contains(')'))
+                {
+                    output = 0;
+                }
+                if (output == 1 && brackets.Contains('['))
+                {
+                    output = brackets.Where(m => m.Equals('[')).Count() == brackets.Where(m => m.Equals(']')).Count() ? 1 : 0;
+                }
+                else if(output == 1 && brackets.Contains(']'))
+                {
+                    output = 0;
+                }
+                if (output == 1 && brackets.Contains('{'))
+                {
+                    output = brackets.Where(m => m.Equals('{')).Count() == brackets.Where(m => m.Equals('}')).Count() ? 1 : 0;
+                }
+                else if(output == 1 && brackets.Contains('}'))
+                {
+                    output = 0;
+                }
+            }
+
+            else
+            {
+                output = 1;
+            }
+            return output;
+        }
+        #endregion
         #endregion
     }
 }
